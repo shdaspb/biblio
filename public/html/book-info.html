@@ -1,0 +1,47 @@
+{{define "book-info"}}
+<!DOCTYPE html>
+<html lang="ru">
+{{template "head"}}
+<body>
+<h1 class="table table-bordered table-hover horizontal-align" style="text-align: center">Книга</h1>
+<div class="container">
+    <form class="form-vertical"  method="get">
+        <table class="table table-bordered table-hover horizontal-align">
+            <tr>
+                <td>Категория:</td>
+                <td>{{.Category}}</td>
+            </tr>
+            <tr>
+                <td>Автор:</td>
+                <td>{{.Author}}</td>
+            </tr>
+            <tr>
+                <td>Серия:</td>
+                <td>{{.Series}}</td>
+            </tr>
+            <tr>
+                <td>Наименование:</td>
+                <td>{{.Name}}</td>
+            </tr>
+            <tr>
+                <td>Описание:</td>
+                <td>{{.Annotation}}</td>
+            </tr>
+            <tr>
+                <td>Дата публикации:</td>
+                {{ $formattedDateTime := .Publication.Format "02-01-2006 15:04:05" }}
+                <td>{{ $formattedDateTime}}</td>
+            </tr>
+            <tr>
+            <td>
+                <a class="btn btn-primary" onclick="javascript:history.back(); return false;">Назад</a>
+            </td>
+            <td>
+            </td>
+            </tr>
+        </table>
+    </form>
+</div>
+</body>
+</html>
+{{end}}

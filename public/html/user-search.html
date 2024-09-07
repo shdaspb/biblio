@@ -1,0 +1,54 @@
+{{define "user-search"}}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+{{template "head"}}
+</head>
+<body>
+<h1 class="text-center">Поиск</h1>
+<div class="container">
+    <form class="form-vertical" method="post">
+        <table class="table table-bordered table-hover horizontal-align">
+            <tr>
+                <td>Жанр:</td>
+                <td>
+                    <select id="category" name="category"/>
+                    <option value=""></option>
+                    <option value="Детективы, остросюжетная литература">Детективы, остросюжетная литература</option>
+                    <option value="Классика">Классика</option>
+                    <option value="Приключения, историческая литература">Приключения, историческая литература</option>
+                    <option value="Фантастика">Фантастика</option>
+                    <option value="Юмор">Юмор</option>
+                    <option value="Детские">Детские</option>
+                    <option value="Любовно-слезоточивая литература">Любовно-слезоточивая литература</option>
+                    <option value="Современная литература">Современная литература</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Автор:</td>
+                <td><input type="text" size="100%" id="author" name="author"/></td>
+            </tr>
+            <tr>
+                <td>Серия:</td>
+                <td><input type="text" size="100%" id="series" name="series"/></td>
+            </tr>
+            <tr>
+                <td>Наименование:</td>
+                <td><input type="text" size="100%" id="name" name="name"/></td>
+            </tr>
+            <tr>
+                <td><input type="submit" class="btn btn-primary" value="Поиск"/></td>
+
+            </tr>
+        </table>
+    </form>
+{{if . }}
+<div>
+    <h3>{{.Message}}</h3>
+</div>
+{{end}}
+</div>
+</body>
+</html>
+{{end}}

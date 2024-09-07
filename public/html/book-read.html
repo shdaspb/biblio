@@ -1,0 +1,22 @@
+{{define "book-read"}}
+<!DOCTYPE html>
+<html lang="ru">
+{{template "head"}}
+<body>
+{{template "header"}}
+<form class="form-horizontal" method="get">
+    <table class="table table-bordered table-hover horizontal-align">
+<tr>
+        <td><a class="btn btn-primary" onclick="javascript:history.back(); return false;"><h4>Назад</h4></a></td>
+        <td><h2><b>{{.Author}}. {{.Name}}</b></h2></td>
+</tr>
+    </table>
+</form>
+
+<div class="container">
+    <b><textarea avtofocus style="font-family: 'Courier New'; font-size: 26px;" cols="75" rows="19">{{.Message}}</textarea></b>
+</div>
+
+</body>
+</html>
+{{end}}

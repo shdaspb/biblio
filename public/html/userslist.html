@@ -1,0 +1,46 @@
+{{define "userlist"}}
+<!DOCTYPE html>
+<html lang="ru">
+{{template "head"}}
+<body>
+{{template "header"}}
+<div>
+    <table class="table table-bordered table-hover horizontal-align">
+        <thead>
+        <tr>
+            <th>Логин</th>
+            <th>Имя пользователя</th>
+            <th>Роль пользователя</th>
+            <th>Доступ</th>
+            <th>Редактирование</th>
+            <th>Удаление</th>
+        </tr>
+        </thead>
+        <tbody>
+        {{range .}}
+        <tr>
+            <td style="text-align: center">{{.Username}}</td>
+            <td style="text-align: center">{{.FullName}}</td>
+            <td style="text-align: center">{{.Role}}</td>
+            <td style="text-align: center">
+                {{if .Active}}
+                <i class="fa fa-plus-square-o" style="font-size:20px;color:#337ab7"></i>
+                {{else}}
+                <i class="fa fa-minus-square-o" style="font-size:20px;color:#337ab7"></i>
+                {{end}}
+            </td>
+            <td style="text-align: center"><a href="users/edit/{{.User_Id}}">
+                <i class="fa fa-edit" style="font-size: 20px;"></i></a>
+            </td>
+            <td style="text-align: center; padding-top: 4px;">
+                <a href="users/delete/{{.User_Id}}">
+                <i class="fa fa-remove" style="font-size: 20px;"></i>
+            </td>
+        </tr>
+        {{end}}
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
+{{end}}

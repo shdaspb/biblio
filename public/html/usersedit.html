@@ -1,0 +1,48 @@
+{{define "usersedit"}}
+<!DOCTYPE html>
+<html lang="ru">
+{{template "head"}}
+<body>
+{{template "header"}}
+<div class="container">
+    <div class="container">
+        <form class="form-horizontal" 
+              name="edit_form" id="edit_form" method="post" role="form">
+            <div class="form-group">
+                <label for="username">Логин:</label>
+                <label type="text" class="form-control" id="username" maxlength="100" readonly="readonly">{{.Username}}</label>
+            </div>
+            <div class="form-group">
+                <label for="fullName">Имя:</label>
+                <label type="text" class="form-control" id="fullName" maxlength="100" readonly="readonly"/>{{.FullName}}</label>
+            </div>
+            <div class="form-group">
+                <label for="role">Права:</label>
+                <select class="form-control" id="role" name="role">
+                    <option>{{.Role}}</option>
+                    {{if eq .Role "ADMIN"}}
+                    <option>USER</option>
+                    {{else}}
+                    <option>ADMIN</option>
+                    {{end}}
+                </select>
+
+            </div>
+            <div class="form-group">
+                <div class="form-check">
+		    {{if .Active}}
+                    <input class="form-check-input" type="checkbox" id="active" name="active" checked/>
+		    {{else}}
+                    <input class="form-check-input" type="checkbox" id="active" name="active" unchecked/>
+		    {{end}}
+                    <label class="form-check-label" for="active">Доступ?</label>
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Сохранить</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>
+{{end}}

@@ -1,0 +1,70 @@
+{{define "book"}}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+{{template "head"}}
+</head>
+<body>
+<h1 class="table table-bordered table-hover horizontal-align" style="text-align: center">Книга</h1>
+    <div class="container">
+          <form class="form-vertical" method="post">
+            <table class="table table-bordered table-hover horizontal-align">
+                <tr>
+                    <td>Категория:</td>
+                    <td>
+                        <select id="category" name="category"/>
+                        <option value=""></option>
+                        <option value="Детективы, остросюжетная литература">Детективы, остросюжетная литература</option>
+                        <option value="Классика">Классика</option>
+                        <option value="Приключения, историческая литература">Приключения, историческая литература</option>
+                        <option value="Фантастика">Фантастика</option>
+                        <option value="Юмор">Юмор</option>
+                        <option value="Детские">Детские</option>
+                        <option value="Любовно-слезоточивая литература">Любовно-слезоточивая литература</option>
+                        <option value="Современная литература">Современная литература</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Автор:</td>
+                    <td><input type="text" size="100%" id="author" name="author"/></td>
+                </tr>
+                <tr>
+                    <td>Серия:</td>
+                    <td><input type="text" size="100%" id="series" name="series"/></td>
+                </tr>
+                <tr>
+                    <td>Наименование:</td>
+                    <td><input type="text" size="100%" id="name" name="name"/></td>
+                </tr>
+                <tr>
+                    <td>Описание:</td>
+                    <td><textarea cols="102" rows="7" id="annotation" name="annotation"/></textarea></td>
+                </tr>
+                <tr>
+                    <td>Доступ:</td>
+                    <td>
+                        <select id="access" name="access"/>
+                        <option value="Да">Да</option>
+                        <option value="Нет">Нет</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Ссылка:</td>
+                    <td><input type="text" size="100%" id="link" name="link"/></td>
+                </tr>
+                <tr>
+                    <td><input type="submit" class="btn btn-primary" value="Сохранить"/></td>
+                </tr>
+            </table>
+          </form>
+    </div>
+{{if . }}
+<div>
+    <h3>{{.Message}}</h3>
+</div>
+{{end}}
+</body>
+</html>
+{{end}}

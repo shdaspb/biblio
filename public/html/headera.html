@@ -1,0 +1,17 @@
+{{define "header"}}    
+<div>
+    <nav class="navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <a class="navbar-brand" href="/admin">Изба - читальня</a>
+                <a class="navbar-brand" href="/admin/books">Все книги</a>
+                <a class="navbar-brand" href="/admin/users">Пользователи</a>
+                <form class="navbar-form navbar-right" action="/logout" method="get">
+                    <button class="btn btn-outline-success">Выход
+                    </button>
+                </form>
+            </div>
+        </div>
+    </nav>
+</div>
+{{end}}

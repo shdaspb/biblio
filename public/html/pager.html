@@ -1,0 +1,65 @@
+{{define "pager"}}
+<div fragment="pager">
+        <div class="pagination">
+            {{if gt .PageCount 1}}
+                <ul class="pagination">
+                    {{if eq .PrevNumber 0}}
+                    <li class="disabled">
+                        <a href="{{.PageUrl}}1">Первая</a>
+                    </li>
+                    {{else}}
+                    <li>
+                        <a href="{{.PageUrl}}1">Первая</a>
+                    </li>
+                    {{end}}
+
+                    {{if eq .PrevNumber 0}}
+                    <li class="disabled">
+                        <a>Предыдущая</a>
+                    </li>
+                    {{else}}
+                    <li>
+                        <a href="{{.PageUrl}}{{.PrevNumber}}">Предыдущая</a>
+                    </li>
+                    {{end}}
+
+                    {{if lt .PageCount 21}}
+                    <li>
+                       {{range .Str}}
+                         {{if eq . $.Number}}
+                           <a href="{{$.PageUrl}}{{.}}"><b><big>{{.}}</big></b></a>
+                         {{else}}
+                           <a href="{{$.PageUrl}}{{.}}">{{.}}</a>
+                         {{end}}
+                       {{end}}
+                    </li>
+                    {{else}}
+                        <li>
+                        <a><b><big>{{.Number}}</big></b></a>
+                        </li>
+                    {{end}}
+                    {{if eq .Number .PageCount}}
+                    <li class="disabled">
+                        <a>Следующая</a>
+                    </li>
+                    {{else}}
+                    <li>
+                        <a href="{{.PageUrl}}{{.NextNumber}}">Следующая</a>
+                    </li>
+                    {{end}}
+
+                    {{if eq .Number .PageCount}}
+                    <li class="disabled">
+                        <a href="{{.PageUrl}}{{.PageCount}}">Последняя</a>
+                    </li>
+                    {{else}}
+                    <li>
+                        <a href="{{.PageUrl}}{{.PageCount}}">Последняя</a>
+                    </li>
+                    {{end}}
+
+                </ul>
+            {{end}}
+        </div>
+</div>
+{{end}}

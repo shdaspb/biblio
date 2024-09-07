@@ -1,0 +1,36 @@
+{{define "all-book"}}
+<!DOCTYPE html>
+<html lang="ru">
+{{template "head"}}
+<body>
+{{template "header"}}
+
+<div class="container-sm">
+        <table class="table table-bordered table-hover horizontal-align">
+            <thead>
+            <tr>
+                <th>Жанр</th>
+                <th>Автор</th>
+                <th>Наименование</th>
+                <th>Действие</th>
+            </tr>
+            </thead>
+            <tbody>
+            {{range .Books}}
+            <tr>
+                <td style="text-align: center">{{.Category}}</td>
+                <td style="text-align: center">{{.Author}}</td>
+                <td style="text-align: center">{{.Name}}</td>
+                <td class="text-center">
+                    <a class="btn btn-primary" href="/user/books/open/{{.Book_Id}}">Открыть</a>
+                    <a class="btn btn-primary" href="/user/books/read/{{.Book_Id}}">Читать</a>
+                </td>
+            </tr>
+            {{end}}
+            </tbody>
+        </table>
+{{template "pager" .}}
+</div>
+</body>
+</html>
+{{end}}

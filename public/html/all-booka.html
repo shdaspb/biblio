@@ -1,0 +1,46 @@
+{{define "all-booka"}}
+<!DOCTYPE html>
+<html lang="ru">
+{{template "head"}}
+<body>
+{{template "header"}}
+    <div class="container-fluid">
+
+        <form class="form-horizontal" method="post">
+            <input type="text" size="15%" id="link" name="link"/>
+            <input type="submit" class="btn btn-primary" value="Поиск"/>
+            <a class="btn btn-primary" href="/admin/books/new">Новая книга</a>
+        </form>
+    </div>
+
+<div class="container-sm">
+        <table class="table table-bordered table-hover horizontal-align">
+            <thead>
+            <tr>
+                <th>Жанр</th>
+                <th>Автор</th>
+                <th>Наименование</th>
+                <th>Действие</th>
+            </tr>
+            </thead>
+            <tbody>
+            {{range .Books}}
+            <tr>
+                <td style="text-align: center">{{.Category}}</td>
+                <td style="text-align: center">{{.Author}}</td>
+                <td style="text-align: center">{{.Name}}</td>
+                <td class="text-center">
+                    <a class="btn btn-primary" href="/admin/books/open/{{.Book_Id}}">Открыть</a>
+                    <a class="btn btn-primary" href="/admin/books/read/{{.Book_Id}}">Читать</a>
+                    <a class="btn btn-primary" href="/admin/books/edit/{{.Book_Id}}">Редактировать</a>
+                    <a class="btn btn-primary" href="/admin/books/delete/{{.Book_Id}}">Удалить</a>
+                </td>
+            </tr>
+            {{end}}
+            </tbody>
+        </table>
+{{template "pager" .}}
+</div>
+</body>
+</html>
+{{end}}
